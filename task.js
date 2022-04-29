@@ -1,4 +1,4 @@
-const array = JSON.parse(localStorage.getItem("data")) || [];
+let array = JSON.parse(localStorage.getItem("data")) || [];
 array.forEach((item) => {
 
 
@@ -74,6 +74,7 @@ const addtask = () => {
 };
 
 function addvalue(item) {
+  console.log(item)
   const boxsDiv = document.getElementById("taskDiv");
   const box = document.createElement("div");
   box.id = "div";
@@ -117,12 +118,12 @@ function addvalue(item) {
 };
 
 
-
-
-function update(id) {
-
-  const data = JSON.parse(localStorage.getItem("data"));
-  const result = data.filter((item) => item.id !== id);
-  localStorage.setItem("data", JSON.stringify(result))
-  console.log(result);
+function update() {
+  localStorage.clear()
+  document.getElementById("taskDiv").innerHTML = "";
+  document.getElementById("text").value = "";
+  document.getElementById("addInput").value = "";
+  document.getElementById("dropdown").innerHTML = "";
+  array = []
 }
+
