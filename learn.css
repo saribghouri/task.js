@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(56, 55, 55);
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+#boxsDiv{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 65%;
+    margin-top: 30px;
+}
+.divBox{
+    width: 30%;
+    height: 30vh;
+    border: 1px solid black;
+
+}
+.btnsDiv{
+    display: flex;
+    justify-content: space-around;
+}
+.Heading{
+    text-align: center;
+}
+
+#addbtn{
+    background-color: rgb(9, 117, 189);
+    width: 10%;
+}
+#dropdown{
+width: 20%;
+}
+
+#innerDivId:button{
+    background-color: rgb(9, 117, 189);
+    color: white;
+}
+
+#divv{
+    background-color:rgb(9, 117, 189);;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+#innerDivId{
+    margin-top: 15px;
+}

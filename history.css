@@ -1,0 +1,39 @@
+#body{
+    display: flex;
+    flex-direction: row;
+background-color: rgba(22, 90, 90, 0.618);
+    margin-left: 00px;
+}
+
+button{
+    margin-top: 30%;
+    margin-left: 20px;
+    margin-left: 20px;
+background-color: rgb(5, 86, 133);
+color: aliceblue;
+}
+
+#div{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    
+
+
+}
+h1{
+    margin-left: 20px;
+    border: 1px, solid;
+    color: rgb(10, 58, 78);
+}
+
+/* span{
+    display: flex;
+    flex-direction: row;
+  
+} */
+
+
+h2{
+    margin-bottom: 50px;
+}

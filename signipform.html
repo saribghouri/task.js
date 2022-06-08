@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sign Up | MultiWebPress</title>
+    <!-- <link rel="stylesheet" href="signup.css"> -->
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+        Create an account
+        <p>It's quick and easy</p>
+      </div>
+      <form action="#" id="signup" onsubmit="addUser(event)">
+        <div id="field1">
+          <input type="text" required id="fname" />
+          <label for="">First Name</label>
+        </div>
+
+        <div id="field2">
+          <input type="text" required id="lname" />
+          <label for="">Last Name</label>
+        </div>
+
+        <div id="field3">
+          <input type="email" required id="emailValue" />
+          <label for="">Email Address</label>
+        </div>
+
+        <div id="field4">
+          <input type="password" required id="password" />
+          <label for="">Password</label>
+        </div>
+        
+        <div id="field5">
+          <input type="submit" value="Sign Up" />
+        </div>
+
+        <div class="signup-link">
+          Already have a account?<a  href="/loginform.html"> Login Now</a>
+    
+        </div>
+      </form>
+    </div>
+    <script src="signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactForm</title>
+    <link
+      cl="image"
+      rel="shortcut icon"
+      type="images/"
+      href="images/fuylNg.png"
+    />
+    <link rel="stylesheet" href="contect2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="list.html" id="contact" onsubmit="addcontect(event)">
+        <h3>Contacts Form</h3>
+        <h4>Contact us for (inciter tech).</h4>
+        <fieldset>
+          <input
+            placeholder="First Name......"
+            type="text"
+            id="fname"
+            required
+            autofocus
+          />
+        </fieldset>
+        <fieldset>
+          <input
+            placeholder="Last Name......"
+            type="text"
+            id="lname"
+            required
+            autofocus
+          />
+        </fieldset>
+        <fieldset>
+          <input
+            placeholder="Your Email Address......"
+            type="email"
+            id="emailValue"
+            required
+          />
+        </fieldset>
+        <fieldset>
+          <input
+            placeholder="Your Phone Number...... "
+            type="tel"
+            id="PhoneNumber"
+            required
+          />
+        </fieldset>
+
+        <fieldset>
+          <input
+            placeholder="Enter Address...... "
+            type="tel"
+            id="EnterText"
+            required
+          />
+        </fieldset>
+        <fieldset>
+          <button
+            name="submit"
+            type="submit"
+            id="contact-submit"
+            data-submit="...Sending"
+          >
+            Submit
+          </button>
+        </fieldset>
+        <p class="copyright">
+          Designed by
+          <a href="#" target="_blank" title="saribghouri">Sarib//Ghouri.</a>
+        </p>
+      </form>
+    </div>
+    <script src="contect2.js"></script>
+  </body>
+</html>

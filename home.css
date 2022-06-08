@@ -105,5 +105,29 @@ body{
   }
 
   #div{
-    border: 1px solid;
+    /* border: 1px solid; */
+    border-radius:1%;
+    box-shadow:  1px 3px 10px 10px #363535;
+    margin-left: 50px;
+    margin-top: 20px;
+    padding: 10px;
+    width: 40%;
+    display: fixed;
+    /* box-shadow: 10px 10px 5px lightblue inset; */
+  }
+
+  .Heading{
+    text-align: center;
+    /* color: #a19e9e; */
+    /* font-size: 0px; */
+
+  }
+
+
+  #taskDiv{
+    display: flex;
+    flex-direction: column;
+  }
+  #innerDivId{
+
   }

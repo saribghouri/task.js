@@ -154,8 +154,6 @@ const listDelete = (item, i, ind) => {
 }
 
 
-
-
 const updateValue = (item, i, ind) => {
     const inputField = document.getElementById("inputID").value
 
