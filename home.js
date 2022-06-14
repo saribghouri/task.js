@@ -1,5 +1,68 @@
+const addvalue = (item) => {
+  const boxsDiv = document.getElementById("taskDiv");
+  const box = document.createElement("div");
+  box.id = "div";
+  box.classList.add("taskBox");
+  const heading = document.createElement("h1");
+  heading.classList.add("Heading");
+  heading.innerHTML = item.name;
+  box.appendChild(heading);
+  const btn = document.createElement("button");
+  box.appendChild(btn);
+  btn.innerHTML = "delete";
+  btn.onclick = () => {
+    update(item.id);
+  };
+  item.task.forEach((value, i) => {
+    const innerDiv = document.createElement("div");
+    innerDiv.id = "innerDivId";
+    innerDiv.classList.add("btnsDiv");
+    const prg = document.createElement("p");
+    const prgId = Math.random();
+    prg.id = prgId;
+    const donebtn = document.createElement("button");
+    donebtn.innerHTML = "Task Done";
+    donebtn.addEventListener("click", () => {
+      listDone(item, i);
+    });
+    const editBtn = document.createElement("button");
+    editBtn.innerHTML = "Edit";
+
+    editBtn.addEventListener("click", () => {
+      listEdit(value, item.id);
+    });
+
+    const listEdit = (item, objIndex, ind) => {
+      let data = JSON.parse(localStorage.getItem("data"));
+      if (editBtn.innerHTML === "Edit") {
+        const inputField = document.createElement("input");
+        localStorage.setItem("data", JSON.stringify(data));
+        inputField.id = "inputID";
+        inputField.value = prg.innerHTML;
+        innerDiv.appendChild(inputField);
+        editBtn.innerHTML = "Save";
+      } else {
+        editBtn.innerHTML == "Save";
+        editBtn.addEventListener("change", updateValue(item, objIndex, ind));
+      }
+    };
+    const deleteBtn = document.createElement("button");
+    deleteBtn.setAttribute("background-color", "black");
+    deleteBtn.innerHTML = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      listDelete(item, i);
+    });
+    prg.innerHTML = value.value;
+    innerDiv.appendChild(prg);
+    innerDiv.appendChild(donebtn);
+    innerDiv.appendChild(editBtn);
+    innerDiv.appendChild(deleteBtn);
+    box.appendChild(innerDiv);
+    boxsDiv.appendChild(box);
+  });
+};
 const array = JSON.parse(localStorage.getItem("data")) || [];
-console.log("javascript", array);
+
 array.forEach((item) => {
   addvalue(item);
 });
@@ -24,7 +87,7 @@ const add = () => {
 const getSelectValue = () => {
   let select = document.getElementById("dropdown");
   array.forEach((e) => {
-    let selector = document.createElement("option");
+    const selector = document.createElement("option");
     let txtText1 = document.getElementById("text").value;
     selector.innerHTML = txtText1;
     selector.text = e.name;
@@ -36,7 +99,7 @@ const getSelectValue = () => {
 getSelectValue();
 const addOption = () => {
   const dropdown = document.getElementById("dropdown");
-  // const btn = document.getElementById("addbtn")
+
   dropdown.innerHTML = "";
 };
 const addtask = () => {
@@ -61,71 +124,6 @@ const addtask = () => {
   });
 };
 
-function addvalue(item) {
-  const boxsDiv = document.getElementById("taskDiv");
-  const box = document.createElement("div");
-  box.id = "div";
-  box.classList.add("taskBox");
-  const heading = document.createElement("h1");
-  heading.classList.add("Heading");
-  heading.innerHTML = item.name;
-  box.appendChild(heading);
-  let btn = document.createElement("button");
-  box.appendChild(btn);
-  btn.innerHTML = "delete";
-  btn.onclick = function () {
-    update(item.id);
-  };
-
-  item.task.forEach((value, i) => {
-    const innerDiv = document.createElement("div");
-    innerDiv.id = "innerDivId";
-    innerDiv.classList.add("btnsDiv");
-    const PRG = document.createElement("p");
-    const PRGid = Math.random();
-    PRG.id = PRGid;
-    const donebtn = document.createElement("button");
-    donebtn.innerHTML = "Task Done";
-    donebtn.addEventListener("click", function () {
-      listDone(item, i);
-    });
-    const editBtn = document.createElement("button");
-    editBtn.innerHTML = "Edit";
-
-    editBtn.addEventListener("click", function () {
-      listEdit(value, item.id);
-    });
-
-    const listEdit = (item, objIndex, ind) => {
-      let data = JSON.parse(localStorage.getItem("data"));
-      if (editBtn.innerHTML === "Edit") {
-        const inputField = document.createElement("input");
-        localStorage.setItem("data", JSON.stringify(data));
-        inputField.id = "inputID";
-        inputField.value = PRG.innerHTML;
-        innerDiv.appendChild(inputField);
-        editBtn.innerHTML = "Save";
-      } else {
-        editBtn.innerHTML == "Save";
-        editBtn.addEventListener("change", updateValue(item, objIndex, ind));
-      }
-    };
-    const deleteBtn = document.createElement("button");
-    deleteBtn.setAttribute("background-color", "black");
-    deleteBtn.innerHTML = "Delete";
-    deleteBtn.addEventListener("click", function () {
-      listDelete(item, i);
-    });
-    PRG.innerHTML = value.value;
-    innerDiv.appendChild(PRG);
-    innerDiv.appendChild(donebtn);
-    innerDiv.appendChild(editBtn);
-    innerDiv.appendChild(deleteBtn);
-    box.appendChild(innerDiv);
-    boxsDiv.appendChild(box);
-  });
-}
-
 const listDelete = (id, i) => {
   let data = JSON.parse(localStorage.getItem("data"));
   const newDataIndex = data.findIndex((x) => x.id === id.id);
@@ -136,7 +134,7 @@ const listDelete = (id, i) => {
     addvalue(item, id);
   });
 };
-function update(id, i, ind) {
+const update = (id) => {
   let data = JSON.parse(localStorage.getItem("data"));
   const newDataIndex = data.findIndex((x) => x.id === id);
   data[newDataIndex].task = [];
@@ -144,12 +142,11 @@ function update(id, i, ind) {
   document.getElementById("taskDiv").innerHTML = "";
   document.getElementById("text").value = "";
   document.getElementById("addInput").value = "";
-  array = JSON.parse(localStorage.getItem("data"));
+
   data.forEach((item, id) => {
     addvalue(item, id);
   });
-}
-
+};
 const updateValue = (id, i) => {
   const inputField = document.getElementById("inputID").value;
   let data = JSON.parse(localStorage.getItem("data"));
